@@ -1,0 +1,10 @@
+/msgs/{msgid}:{
+body,
+from,
+to,
+datetime
+
+}
+/users/{userid}:{
+token
+}
