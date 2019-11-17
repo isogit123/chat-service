@@ -1,8 +1,9 @@
-/msgs/{msgid}:{
-body,
-from,
-to,
-datetime
+/chats/{chatid}:{
+Peers: [peer1, peer2]
+msgs: {
+Body,
+Time
+}
 
 }
 /users/{userid}:{
