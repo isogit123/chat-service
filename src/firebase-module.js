@@ -37,6 +37,7 @@ export const initCredentialsUI = (containerId) => {
       ],
       callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          console.log(authResult);
           return true;
         }
       }
