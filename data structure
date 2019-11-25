@@ -6,6 +6,14 @@ Time
 }
 
 }
+
+/chats:{
+Peer
+msg,
+Time,
+direction: 'f' or 't'
+
+}
 /users/{userid}:{
 token
 }
