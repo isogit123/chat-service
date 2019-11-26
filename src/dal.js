@@ -1,6 +1,6 @@
 
   export const getDbPromise = () => {
-    return idb.open('msgs', 1, function(upgradeDb) {
+    return indexedDB.open('msgs', 1, function(upgradeDb) {
         switch (upgradeDb.oldVersion) {
           case 0:
             var chatsStore = upgradeDb.createObjectStore('chats', {autoIncrement: true});

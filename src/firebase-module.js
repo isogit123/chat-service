@@ -19,8 +19,14 @@ export const askForPermissionToReceiveNotifications = async () => {
     const messaging = firebase.messaging();
     await messaging.requestPermission();
     const token = await messaging.getToken();
-    messaging.onTokenRefresh(() => {
-
+    firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set({
+      token: token
+    });
+    messaging.onTokenRefresh( async () => {
+      const token = await messaging.getToken();
+       firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set({
+         token: token
+       });
     });
     
     return token;
@@ -40,9 +46,10 @@ export const initCredentialsUI = (containerId) => {
           console.log(authResult);
           return true;
         }
-      }
-      // signInSuccessUrl: '<url-to-redirect-to-on-success>',
+      },
+      signInSuccessUrl: '/chatlist'
     });
 
 }
+
 initializeFirebase();
